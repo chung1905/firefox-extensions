@@ -1,0 +1,19 @@
+{
+  "description": "Remove live chat on youtube.",
+  "manifest_version": 2,
+  "name": "No Live Chat Youtube",
+  "version": "1.0",
+  "icons": {
+    "48": "icons/nope.svg"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "src/main.js"
+      ]
+    }
+  ]
+}

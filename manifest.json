@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "No Click To Edit Jira",
+  "version": "1.0",
+  "description": "Remove click to edit on jira",
+  "icons": {
+    "48": "icons/nope.svg"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "src/main.js"
+      ],
+      "matches": [
+        "https://*.atlassian.net/*"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}

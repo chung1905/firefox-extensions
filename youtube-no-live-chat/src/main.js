@@ -1,18 +1,24 @@
-if (!rmElIfNotNull(searchLiveChatElement())) {
-    setTimeout(rmElIfNotNull.bind(null, searchLiveChatElement), 5000);
+// https://stackoverflow.com/a/61511955/6881855
+function waitForElm(selector) {
+    return new Promise(resolve => {
+        if (document.querySelector(selector)) {
+            return resolve(document.querySelector(selector));
+        }
+
+        const observer = new MutationObserver(mutations => {
+            if (document.querySelector(selector)) {
+                resolve(document.querySelector(selector));
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    });
 }
 
-function rmElIfNotNull(el) {
-    if (typeof el === 'function') {
-        el = el();
-    }
-    if (el !== null) {
-        el.remove();
-        return true;
-    }
-    return false;
-}
-
-function searchLiveChatElement() {
-    return document.getElementById('watch-sidebar-live-chat');
-}
+waitForElm('waitForElm').then(el => {
+    el.remove();
+})

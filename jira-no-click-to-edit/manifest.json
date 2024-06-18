@@ -12,7 +12,8 @@
         "src/main.js"
       ],
       "matches": [
-        "https://*.atlassian.net/*"
+        "https://*.atlassian.net/browse/*",
+        "https://*.atlassian.net/jira/software/c/projects/*/boards/*?quickFilter=*&selectedIssue=*"
       ],
       "run_at": "document_start"
     }

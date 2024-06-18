@@ -10,7 +10,10 @@ document.addEventListener('click', (event) => {
             const aa = e.attributes;
             for (let i = 0; i < aa.length; ++i) {
                 const a = aa[i];
-                if (a.name === 'role' && a.value === 'presentation' && e.tagName !== 'SPAN') {
+                if (a.name === 'data-component-selector'
+                    && a.value === 'jira.issue-view.common.inline-edit.compact-wrapper-control'
+                    && e.tagName !== 'SPAN'
+                ) {
                     // This is an attempt to cleanly match relevant elements (comments, description) despite class obfuscation.
                     // Excluding <span> avoids inhibiting clicks on attach/link buttons.
 
@@ -23,5 +26,5 @@ document.addEventListener('click', (event) => {
             e = e.parentNode;
         }
     },
-    { capture: true }
+    {capture: true}
 )

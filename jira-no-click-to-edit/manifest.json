@@ -1,10 +1,16 @@
 {
   "manifest_version": 3,
   "name": "No Click To Edit Jira",
-  "version": "1.0",
+  "version": "1.2",
   "description": "Remove click to edit on jira",
   "icons": {
     "48": "icons/nope.svg"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{2120b96c-8a88-4817-bd46-628e09fd9656}",
+      "strict_min_version": "109.0"
+    }
   },
   "content_scripts": [
     {
